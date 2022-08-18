@@ -1,0 +1,5 @@
+newlib_example.wasm
+newlib_example.wat
+build/
+build2/
+newlib-cygwin/
