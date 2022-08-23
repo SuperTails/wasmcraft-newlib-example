@@ -154,6 +154,8 @@ int close(int fd) {
     return _close(fd);
 }
 
+int _write(int fd, const void *buf, size_t count);
+
 int _link(const char *oldpath, const char *newpath) {
   const char msg[] = "ignoring link\n";
   _write(STDOUT_FD, msg, sizeof(msg) - 1);

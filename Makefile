@@ -32,7 +32,7 @@ LIBS+=
 # subdirectory for objects
 OBJDIR=build
 OBJDIR2=build2
-OUTPUT=newlib_example.wasm
+OUTPUT=build/newlib_example.wasm
 
 OBJS_NEWLIB+=errno.o sysfstat.o
 
@@ -56,7 +56,7 @@ LIBM_DIR = ./newlib-cygwin/newlib/libm
 SRC_USER = main.o stubs.o
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_USER))
 
-all:	 $(OUTPUT) newlib_example.wat
+all:	 $(OUTPUT) build/newlib_example.wat
 
 clean:
 	rm -rf $(OBJDIR)
@@ -65,8 +65,8 @@ clean:
 	rm -f $(OUTPUT).gdb
 	rm -f $(OUTPUT).map
 
-newlib_example.wat: $(OUTPUT)
-	wasm2wat $(OUTPUT) -o newlib_example.wat
+build/newlib_example.wat: $(OUTPUT)
+	wasm2wat $(OUTPUT) -o build/newlib_example.wat
 
 $(OUTPUT):	$(OBJS) $(OBJS2)
 	@echo [Linking $@]
